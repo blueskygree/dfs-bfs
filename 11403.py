@@ -3,15 +3,20 @@ input=sys.stdin.readline
 
 n=int(input())
 data=[list(map(int,input())) for _ in range(n)]
-visited=[[False]*n for _ in range(n)]
+visited=[0 for _ in range(n)]
 
-dx=[-1,1,0,0]
-dy=[0,0,-1,1]
+def dfs(x):
+    for i in range(n):
+        if data[x][i]==1 and visited[i]==0:
+            visited[i]=1
+            dfs(i)
 
-def dfs(x,y):
-    for i in range(4):
-        nx=x+dx[i]
-        ny=y+dy[i]
-
-        if 0<=nx<n and 0<=ny<n and not visited[nx][ny]:
-            
+for i in range(n):
+    dfs(i)
+    for j in range(n):
+        if visited[i]==1:
+            print(1,end=" ")
+        else:
+            print(0,end=" ")
+    print()
+    visited=[0 for _ in range(n)]
