@@ -6,7 +6,7 @@ n,m,k,x=map(int,input().split())
 data=[[] for _ in range(n+1)]
 visited=[False]*(n+1)
 distance=[0]*(n+1)
-order=1
+
 for _ in range(m):
     a,b=map(int,input().split())
     data[a].append(b)
